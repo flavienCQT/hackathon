@@ -24,7 +24,7 @@
 
 .button-home {
     --tw-bg-opacity: 1;
-    background-color: black;
+    background-color: rgba(70, 255, 189, 1);
     border: none;
 
     transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
