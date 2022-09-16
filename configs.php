@@ -1,9 +1,9 @@
 <?php
 
-$DB_SERVER = getenv("MVC_SERVER") ?: "192.168.139.1";
-$DB_DATABASE = getenv("MVC_DB") ?: "AP3_BD_HACKATHON_INITIAL";
-$DB_USER = getenv("MVC_USER") ?: "exemple-2";
-$DB_PASSWORD = getenv("MVC_TOKEN") ?: "m6MIbZx0";
+$DB_SERVER = getenv("MVC_SERVER") ?: "192.168.10.15";
+$DB_DATABASE = getenv("MVC_DB") ?: "mf-coding";
+$DB_USER = getenv("MVC_USER") ?: "mf-coding-1";
+$DB_PASSWORD = getenv("MVC_TOKEN") ?: "WC6XfSEj";
 $DEBUG = getenv("MVC_DEBUG") ?: true;
 
 return array(
