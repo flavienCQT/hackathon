@@ -30,10 +30,15 @@
             <a class="btn bg-green m-2 button-home" href="#" @click.prevent="participantsIsShown = false">←</a> Listes des participants
 
             <ul class="pt-3">
-                <li class="member" v-for="p in participants">🧑‍💻 {{p['nomequipe']}}</li>
+                <li class="member" v-for="p in participants">🧑‍💻 {{p['nomequipe']}}
+                <a class="btn btn-sm btn-primary" :href=`/equipe/${p['idequipe']}`>  
+                 Membres     
+                </a>
+                </li>
             </ul>
 
         </div>
+        
     </div>
 </div>
 

@@ -39,6 +39,7 @@ class Web
             Route::Add('/logout', [$equipe, 'logout']);
             Route::Add('/me', [$equipe, 'me']);
             Route::Add('/membre/add', [$equipe, 'addMembre']);
+            Route::Add('/equipe/{idequipe}', [$equipe, 'listeMembres']);
         }
     }
 }

@@ -123,4 +123,12 @@ class Equipe extends Web
         SessionHelpers::logout();
         $this->redirect("/");
     }
+
+   
+    function listeMembres($idequipe = "")
+    {
+        $lequipe = $this->equipe->getOne($idequipe);
+        $data = $this->membre->getByIdEquipe($idequipe);
+        Template::render("views/global/listeMembre.php", array('data' => $data, 'lequipe' => $lequipe));
+    }
 }

@@ -22,7 +22,7 @@ class Api
 
         // Route relative aux API membre
         Route::Add('/api/membre/all', [$membreApi, 'getAll']);
-        Route::Add('/api/membre/{idequipe}', [$membreApi, 'getByEquipeId']);
+        
 
         // Route relative aux API équipe
         Route::Add('/api/equipe/all', [$equipeApi, 'getAll']);
