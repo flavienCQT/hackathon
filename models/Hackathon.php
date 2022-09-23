@@ -29,6 +29,18 @@ class Hackathon extends SQL
         return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
 
+    /*public function getHackathonAccess(int $idHackathon){
+        $stmt = $this->pdo->prepare("SELECT MAX(nbEquipMax) AS nbEquipMax, COUNT(INSCRIRE.idequipe) AS nbEquip, INSCRIRE.dateinscription, dateFinInscription  FROM `HACKATHON` INNER JOIN INSCRIRE ON INSCRIRE.idhackathon = HACKATHON.idhackathon WHERE HACKATHON.idhackathon = ?;");
+        $stmt->execute([$idHackathon]);
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function getDateNow(){
+        $stmt = $this->pdo->prepare("SELECT DATE(NOW()) AS 'date'");
+        $stmt->execute();
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
+    }*/
+
     public function joinHackathon(string $idH, string $idE): bool
     {
         $stmt = $this->pdo->prepare("INSERT INTO INSCRIRE VALUES (?, ?, NOW()) ON DUPLICATE KEY UPDATE dateinscription = NOW()");
