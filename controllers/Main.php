@@ -24,8 +24,12 @@ class Main extends Web
     function home()
     {
         $currentHackathon = $this->hackathon->getActive();
+        //$currentHackathonIsOpen = $this->hackathon->getHackathonIsOpen($currentHackathon['idhackathon']);
         $currentOrganisateur = $this->organisateur->getOne($currentHackathon['idorganisateur']);
+        //$currentDateNow = $this->hackathon->getDateNow();
         Template::render("views/global/home.php", array("hackathon" => $currentHackathon, "organisateur" => $currentOrganisateur));
+        //return Template::render("views/global/home.php", array("hackathon" => $currentHackathon, "organisateur" => $currentOrganisateur, "hackathonIsOpen" => $currentHackathonIsOpen, "dateNow" => $currentDateNow));
+
     }
 
     function about()
