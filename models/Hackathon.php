@@ -17,8 +17,8 @@ class Hackathon extends SQL
      */
     public function getActive(): bool|array
     {
+        //$stmt = $this->pdo->prepare("SELECT * FROM HACKATHON WHERE dateheurefinh > NOW() ORDER BY dateheuredebuth LIMIT 1");
         $stmt = $this->pdo->prepare("SELECT * FROM HACKATHON WHERE dateheurefinh > NOW() ORDER BY dateheuredebuth LIMIT 1");
-        //$stmt = $this->getPdo->prepare("SELECT * FROM HACKATHON WHERE dateheurefinh > NOW() ORDER BY dateheuredebuth LIMIT 1");
         $stmt->execute();
         return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
@@ -30,8 +30,8 @@ class Hackathon extends SQL
         return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
 
-    /*public function getHackathonIsOpen($idHackathon){
-        $stmt = $this->pdo->prepare("SELECT MAX(nbEquipMax) AS nbEquipMax, COUNT(INSCRIRE.idequipe) AS nbEquip, INSCRIRE.dateinscription, dateFinInscription  FROM `HACKATHON` INNER JOIN INSCRIRE ON INSCRIRE.idhackathon = HACKATHON.idhackathon WHERE HACKATHON.idhackathon = ?;");
+    public function getHackathonIsOpen($idHackathon){
+        $stmt = $this->pdo->prepare("SELECT MAX(nb_equipe_max) AS nb_equipe_max, COUNT(INSCRIRE.idequipe) AS nbEquip, INSCRIRE.dateinscription, dateButoir  FROM `HACKATHON` INNER JOIN INSCRIRE ON INSCRIRE.idhackathon = HACKATHON.idhackathon WHERE HACKATHON.idhackathon = ?;");
         $stmt->execute([$idHackathon]);
         return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
@@ -40,7 +40,7 @@ class Hackathon extends SQL
         $stmt = $this->pdo->prepare("SELECT DATE(NOW()) AS 'date'");
         $stmt->execute();
         return $stmt->fetch(\PDO::FETCH_ASSOC);
-    }*/
+    }
 
     public function joinHackathon(string $idH, string $idE): bool
     {

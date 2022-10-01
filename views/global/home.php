@@ -17,9 +17,32 @@
                 <div><em>Organisateur :</em> <?= "{$organisateur['nom']} {$organisateur['prenom']}" ?></div>
             </div>
 
+            <?php
+            if (($hackathonIsOpen['nbEquip'] >= $hackathonIsOpen['nb_equipe_max']) && ($dateNow['date'] >= $hackathonIsOpen['dateButoir'])) {
+                $error = "Le nombre maximum d'équipe et la date butoir ont été atteints !";
+            } elseif ($hackathonIsOpen['nbEquip'] >= $hackathonIsOpen['nb_equipe_max']) {
+                $error = "Le nombre maximum d'équipe a été atteint !";
+            } elseif ($dateNow['date'] >= $hackathonIsOpen['dateButoir']) {
+                $error = "La date butoir a été dépassée !";
+            } else {
+                ?>
+                <style> .card {
+                        border-radius: 10px 10px 10px 10px;
+                    }</style>
+            <?php } ?>
+            <?php
+            if (isset($error)) {
+                ?>
+                <div class="error"><p><?= $error; ?></p></div>
+           <?php } ?>
+
             <div class="d-flex flex-wrap pt-5">
+            <?php
+                if (($hackathonIsOpen['nbEquip'] < $hackathonIsOpen['nb_equipe_max']) && ($dateNow['date'] < $hackathonIsOpen['dateButoir'])) {
+                    ?>
                 <a class="btn bg-green m-2 button-home" href="/join?idh=<?= $hackathon['idhackathon'] ?>">Rejoindre</a>
                 <a class="btn bg-green m-2 button-home" href="/create-team?idh=<?= $hackathon['idhackathon'] ?>">Créer mon équipe</a>
+                <?php } ?>
                 <a class="btn bg-green m-2 button-home" href="#" @click.prevent="getParticipants">
                     <span v-if="!loading">Les participants</span>
                     <span v-else>Chargement en cours…</span>
