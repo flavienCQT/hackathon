@@ -27,6 +27,9 @@
             <ul>
                 <?php foreach ($membres as $m) { ?>
                     <li class="member">🧑‍💻 <?= "{$m['nom']} {$m['prenom']}" ?></li>
+                    <a class="btn btn-sm btn-danger" :href=`/equipe/${p['idequipe']}`>  
+                 Supprimer le membre     
+                </a>
                 <?php } ?>
             </ul>
 
